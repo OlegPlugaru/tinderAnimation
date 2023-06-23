@@ -8,20 +8,15 @@
 import SwiftUI
 
 struct CardsSection: View {
+    let cards = Card.fetchPhotos()
+    
     var body: some View {
-        ZStack{
-            ForEach(Card.data.reversed()) { card in
+        ZStack {
+            ForEach(cards.reversed()) { card in
                 CardView(card: card)
             }
         }
         .padding(8)
-        
         .zIndex(1.0)
-    }
-}
-
-struct CardsSection_Previews: PreviewProvider {
-    static var previews: some View {
-        CardsSection()
     }
 }
